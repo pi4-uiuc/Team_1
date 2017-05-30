@@ -18,5 +18,7 @@ We want to predict the solar energy measured by the Short Wave Infrared Radiatio
 Measurements from both SWIR and the VNIR sensors
 ## Types of Analysis/Algorithms we might use
 Regression 
+
 Pattern Analysis
+
 Machine learning (?)
