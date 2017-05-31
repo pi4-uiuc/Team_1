@@ -1,0 +1,18 @@
+---
+title: "RF99_plots"
+output: html_notebook
+---
+
+
+
+```{r}
+library(ggplot2)
+
+df_99 = read.csv("Ref_Factor_99.csv")
+
+
+ggplot(df_99,
+       aes(x=df_99[1],y=df_99[3]))+
+  geom_point()+
+  geom_line()
+```

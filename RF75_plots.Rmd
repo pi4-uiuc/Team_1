@@ -1,0 +1,23 @@
+---
+title: "RF75_plots"
+author: "Santi"
+date: "5/31/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+library(ggplot2)
+#skipping first line because there is some column business in there
+df_75 = read.csv("Ref_Factor_75.csv",skip=1)
+
+
+ggplot(df_75,
+       aes(x=df_75[1],y=df_75[3]))+
+  geom_point()
+```
