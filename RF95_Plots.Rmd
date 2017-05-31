@@ -1,0 +1,42 @@
+---
+title: "RF95_Plots"
+author: "Dileep Menon"
+date: "5/31/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Making the RF20 Table
+
+We first look at a subset of the RF20 table which includes the wavelength and reflective_radiation columns. We skip the first row, because it contains information not relevant for the data anaylsis. 
+
+```{r}
+
+
+df_95 <- read.csv("Ref_Factor_95.csv")
+
+
+```
+
+## GGPLOT 
+
+```{r}
+
+library(ggplot2)
+
+
+wavelength <- df_95[1] 
+reflective_radiation <- df_95[3]
+
+ggplot(df_95,
+      aes(x = wavelength , y = reflective_radiation)) +
+  geom_smooth(se = FALSE, alpha = 0.25, size = 0.5) +
+  geom_point(alpha = 0.25, size = 0.5) +
+  geom_line(alpha = 0.25, size = 0.5)
+
+
+```
+
