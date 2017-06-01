@@ -1,5 +1,6 @@
 # Team_1
-This is the repository for team 1
+Updated README: I have added folders where we will put  codes, data, and results.
+
 
 ## Team members
 Iftikhar Ahmed
