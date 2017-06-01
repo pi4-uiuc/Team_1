@@ -1,5 +1,5 @@
 # Team_1
-Updated README: I have added folders where we will put  codes, data, and results.
+Updated README: I have added subfolders in  data and results.
 
 
 ## Team members
