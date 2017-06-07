@@ -103,10 +103,11 @@ plot(x75, y75, log= "y", type= 'l', lty=2, col="cyan", xlab='wavelength', ylab='
 plot(x95, y95, log= "y", type= 'l', lty=2, col="green", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_95% vs Wavelength")
 plot(x99, y99, log= "y", type= 'l', lty=2, col="black", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_99% vs Wavelength")
 
- plot(new_ref20$Wvl, new_ref20$Rad...Ref.., log= "new_ref20$Rad...Ref..", type= 'l',lty=2, col="red", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_20% vs Wavelength")
- plot(new_ref48$Wvl, new_ref48$Rad...Ref.., log= "new_ref48$Rad...Ref..",type= 'l',lty=2, col="blue", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_48% vs Wavelength")
- plot(new_ref75$Wvl, new_ref75$Rad...Ref.., log= "new_ref75$Rad...Ref..",type= 'l',lty=2, col="cyan", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_75% vs Wavelength")
- plot(new_ref95$Wvl, new_ref95$Rad...Ref.., log= "new_ref95$Rad...Ref..",type= 'l',lty=2, col="green", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_95% vs Wavelength")
- plot(new_ref99$Wvl, new_ref99$Rad...Ref.., log= "new_ref99$Rad...Ref..",type= 'l',lty=2, col="black", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_99% vs Wavelength")
+par(mfrow = c(2,3))
+ plot(new_ref20$Wvl, new_ref20$Rad...Ref.. , type= 'l',lty=2, col="red", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_20% vs Wavelength")
+ plot(new_ref48$Wvl, new_ref48$Rad...Ref.. ,type= 'l',lty=2, col="blue", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_48% vs Wavelength")
+ plot(new_ref75$Wvl, new_ref75$Rad...Ref.. ,type= 'l',lty=2, col="cyan", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_75% vs Wavelength")
+ plot(new_ref95$Wvl, new_ref95$Rad...Ref.. ,type= 'l',lty=2, col="green", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_95% vs Wavelength")
+ plot(new_ref99$Wvl, new_ref99$Rad...Ref..,type= 'l',lty=2, col="black", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_99% vs Wavelength")
 
 
