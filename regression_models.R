@@ -187,34 +187,79 @@ spmod99_hat<-fitted(spline_model99)
 #######################################################
 
 par(mfrow=c(2,3))
-plot(x20, spmod20_hat, type= 'l', lty=10, col="red", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_20% vs Wavelength")
+plot(x20, spmod20_hat, type= 'l', col="red", lwd = 2.0,  xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_20% vs Wavelength")
 par(new=TRUE)
 plot(x20, y20)
-plot(x48, spmod48_hat,  type= 'l', lty=2, col="blue", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_48% vs Wavelength")
+plot(x48, spmod48_hat,  type= 'l', col="blue",lwd = 2.0, xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_48% vs Wavelength")
 par(new=TRUE)
 plot(x48, y48)
-plot(x75, spmod75_hat, type= 'l', lty=2, col="cyan", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_75% vs Wavelength")
+plot(x75, spmod75_hat, type= 'l', col="cyan",lwd = 2.0, xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_75% vs Wavelength")
 par(new=TRUE)
 plot(x75, y75)
-plot(x95, spmod95_hat, type= 'l', lty=2, col="green", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_95% vs Wavelength")
+plot(x95, spmod95_hat, type= 'l',  col="green",lwd = 2.0, xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_95% vs Wavelength")
 par(new=TRUE)
 plot(x95, y95)
-plot(x99, spmod99_hat, type= 'l', lty=2, col="black", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_99% vs Wavelength")
+plot(x99, spmod99_hat, type= 'l',  col="red",lwd = 2.0, xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_99% vs Wavelength")
 par(new=TRUE)
 plot(x99, y99)
 
 
 
+### interpSpline
+
+f_20 <- splinefun(x20, y20, method = "fmm", ties = mean)
+ispl
+summary(ispl)
+ls(envir = environment(ispl))
+splinecoef <- get("z", envir = environment(f_20))
+splinecoef
+curve(ispl(x20), col = "green", lwd = 1.5)
+
+plot(x20, f_20(x20), type = 'l' , col="red")
+par(new=TRUE)
+plot(x48, f_20(x48), type = 'l' , col="green")
+par(new=TRUE)
+plot(x75, f_20(x75), type = 'l' , col="blue")
+par(new=TRUE)
+plot(x95, f_20(x95), type = 'l' , col="cyan")
+par(new=TRUE)
+plot(x99, f_20(x99), type = 'l' , col="black")
 
 
+plot(x48, f_20(x48), type = 'l' , col="green")
+par(new= TRUE)
+plot(x48, y48)
 
+###3
+ymean<-rowMeans(rbind(y20, y75, y99))
+ymean
+y20<-c(y20)
+y75<-c(y75)
+y99<-c(y99)
+y20+y75+y99
+y20
+ymean<-mean(y20, y75, y99)
 
+fmean <- splinefun(x20, ymean, method = "fmm", ties = mean)
+plot(x48, fmean(48), type = 'l')
+mean(y20[1],y75[1],y99[1])
+ymean
+head(y20)
+head(x20)
+head(x75)
+head(x99)
+head(y75)
+y20.T
+head(y20.T)
+typeof(y20)
 
-
-
-
-
-
-
-
+####   Replacing negative values with na 
+new_ref20<-ref20[c(1,3)]
+data[data ==9999] <- NA
+new_ref20[new_ref20 <= 0]<-NA
+dim(new_ref20)
+new_ref48<-ref48[c(1,3)]   #  keep first column (wavelenth) of all bcs dim is not same for all files after cleaning data
+new_ref75<-ref75[c(1,3)]
+new_ref95<-ref95[c(1,3)]
+new_ref99<-ref99[c(1,3)]
 
