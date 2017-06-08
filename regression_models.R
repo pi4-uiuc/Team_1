@@ -110,4 +110,111 @@ par(mfrow = c(2,3))
  plot(new_ref95$Wvl, new_ref95$Rad...Ref.. ,type= 'l',lty=2, col="green", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_95% vs Wavelength")
  plot(new_ref99$Wvl, new_ref99$Rad...Ref..,type= 'l',lty=2, col="black", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_99% vs Wavelength")
 
+ #################################
+ 
+ #   Regression
+ 
+ ###############################
+# 20% data 
+model20<- lm(y20 ~ 1 + x20) 
+ summary(model20)
+model20hat<- fitted(model20)
+resid20<- y20-model20hat
+# 48% data
+model48<- lm(y48 ~ x48 +sin(x48)) 
+model48hat<- fitted(model48)
+resid48<- y48-model48hat
+
+# 75% data
+
+model75<- lm(y75 ~ 1 + x75) 
+model75hat<- fitted(model75)
+resid75<- y75-model75hat
+
+# 95% data
+
+model95<- lm(y95 ~ 1 + x95) 
+model95hat<- fitted(model95)
+resid95<- y95-model95hat
+
+# 99% data
+
+model99<- lm(y99 ~ 1 + x99) 
+model99hat<- fitted(model99)
+resid99<- y99-model99hat
+
+## Regression plots
+
+par(mfrow=c(2,3))
+plot(x20, model20hat, type= 'l', lty=2, col="red", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_20% vs Wavelength")
+plot(x48, model48hat,  type= 'l', lty=2, col="blue", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_48% vs Wavelength")
+plot(x75, model75hat, type= 'l', lty=2, col="cyan", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_75% vs Wavelength")
+plot(x95, model95hat, type= 'l', lty=2, col="green", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_95% vs Wavelength")
+plot(x99, model99hat, type= 'l', lty=2, col="black", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_99% vs Wavelength")
+
+
+### Fitting with Cubic Splines
+
+## 20%
+
+spline_model20<-smooth.spline(x20, y20)
+spmod20_hat<-fitted(spline_model20)
+
+## 48% 
+
+spline_model48<-smooth.spline(x48, y48)
+spmod48_hat<-fitted(spline_model48)
+
+##  75%
+
+spline_model75<-smooth.spline(x75, y75)
+spmod75_hat<-fitted(spline_model75)
+
+## 95%
+
+spline_model95<-smooth.spline(x95, y95)
+spmod95_hat<-fitted(spline_model95)
+
+## 99%
+
+spline_model99<-smooth.spline(x99, y99)
+spmod99_hat<-fitted(spline_model99)
+
+#######################################################
+#
+#         Plots for Spline Model
+#
+#######################################################
+
+par(mfrow=c(2,3))
+plot(x20, spmod20_hat, type= 'l', lty=10, col="red", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_20% vs Wavelength")
+par(new=TRUE)
+plot(x20, y20)
+plot(x48, spmod48_hat,  type= 'l', lty=2, col="blue", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_48% vs Wavelength")
+par(new=TRUE)
+plot(x48, y48)
+plot(x75, spmod75_hat, type= 'l', lty=2, col="cyan", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_75% vs Wavelength")
+par(new=TRUE)
+plot(x75, y75)
+plot(x95, spmod95_hat, type= 'l', lty=2, col="green", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_95% vs Wavelength")
+par(new=TRUE)
+plot(x95, y95)
+plot(x99, spmod99_hat, type= 'l', lty=2, col="black", xlab='wavelength', ylab='Radiation(W/m^2) ', main = "Ref_Factor_99% vs Wavelength")
+par(new=TRUE)
+plot(x99, y99)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
