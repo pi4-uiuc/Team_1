@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Project Description
 
-
+Plants absorb sunlight at different wavelengths that lie across a spectrum of values. For a portion of this spectrum, Visual and Near Infrared Radiation or VNIR, it is possible to take measurements frequently such that a multitude of data is available. However, along another portion of the spectrum, Short Wave Infrared Radiation or SWIR, measurements are taken significantly less frequently and so significantly less data is available. The goal of our project was to use the plentiful VNIR data to predict the more elusive SWIR data.
 
 ```{r, echo=FALSE}
 library(readr)
