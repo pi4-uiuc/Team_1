@@ -128,21 +128,21 @@ newdf95 <- df95[complete.cases(df95),]
 
 plot(x20, log(y20), type = 'l', col='orange', xlab = 'Wavelength', ylab = 'log(radiation)', 
      main = "logTarget 20 vs. logTarget 48")
-par(new=TRUE)
-plot(newdf48[,1], log(newdf48[,2]), type = 'l', col='blue', xlab = 'Wavelength', ylab = 'log(radiation)')
+#par(new=TRUE)
+lines(newdf48[,1], log(newdf48[,2]), type = 'l', col='blue', xlab = 'Wavelength', ylab = 'log(radiation)')
 
 plot(newlogmean_df[,1], newlogmean_df[,2], type = 'l', col='orange', xlab = 'Wavelength', ylab = 'log(radiation)', 
      main = "PL-Model vs. logTarget 48")
-par(new=TRUE)
-plot(newdf48[,1], log(newdf48[,2]), type = 'l', col='blue', xlab = 'Wavelength', ylab = 'log(radiation)')
+#par(new=TRUE)
+lines(newdf48[,1], log(newdf48[,2]), type = 'l', col='blue', xlab = 'Wavelength', ylab = 'log(radiation)')
 
 #y95
 plot(x20, log(y20), type = 'l', col='orange', xlab = 'Wavelength', ylab = 'log(radiation)',
      main = "logTarget 20 vs. logTarget 95")
-par(new=TRUE)
-plot(newdf95[,1], log(newdf95[,2]), type = 'l', col='blue', xlab = 'Wavelength', ylab = 'log(radiation)')
+#par(new=TRUE)
+lines(newdf95[,1], log(newdf95[,2]), type = 'l', col='blue', xlab = 'Wavelength', ylab = 'log(radiation)')
 
 plot(newlogmean_df[,1], newlogmean_df[,2], type = 'l', col='orange', xlab = 'Wavelength', ylab = 'log(radiation)',
      main = "PL-Model vs. logTarget 95")
-par(new=TRUE)
-plot(newdf95[,1], log(newdf95[,2]), type = 'l', col='blue', xlab = 'Wavelength', ylab = 'log(radiation)')
+#par(new=TRUE)
+lines(newdf95[,1], log(newdf95[,2]), type = 'l', col='blue', xlab = 'Wavelength', ylab = 'log(radiation)')
